@@ -15,9 +15,16 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
                 'mfe1': "mfe1@http://localhost:4201/remoteEntry.js", 
                 'mfe2': "mfe2@http://localhost:4202/remoteEntry.js", 
                 'mfe3': "mfe3@http://localhost:4203/remoteEntry.js", 
-                'mfe4': "mfe4@http://localhost:4204/remoteEntry.js", 
+                'mfe4': "mfe4@http://localhost:4204/remoteEntry.js",
+                'aemMFE': "aemMFE@http://localhost:4205/remoteEntry.js", 
               },
-            shared: ["@angular/core", "@angular/common", "@angular/router"]
+            shared: {"@angular/core": { 
+              singleton: false,
+              strictVersion: false
+            }, "@angular/common":{}, "@angular/router":{ 
+              singleton: false,
+              strictVersion: false
+            }}
         })
       ],
     };
